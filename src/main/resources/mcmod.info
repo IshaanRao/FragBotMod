@@ -1,0 +1,11 @@
+[
+{
+  "modid": "FragBots",
+  "name": "Frag Bots",
+  "description": "Allows you to do a simple command to party a bot which allows you to fragrun!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "authorList": ["Prince"],
+  "logoFile": "fragbotsico.png"
+}
+]

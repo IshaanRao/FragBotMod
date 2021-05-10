@@ -1,0 +1,12 @@
+LICENSE-fml.txt filter=lfs diff=lfs merge=lfs -text
+MinecraftForge-Credits.txt filter=lfs diff=lfs merge=lfs -text
+README.txt filter=lfs diff=lfs merge=lfs -text
+gradle.properties filter=lfs diff=lfs merge=lfs -text
+gradlew.bat filter=lfs diff=lfs merge=lfs -text
+java_pid1608.hprof filter=lfs diff=lfs merge=lfs -text
+CREDITS-fml.txt filter=lfs diff=lfs merge=lfs -text
+Paulscode[[:space:]]IBXM[[:space:]]Library[[:space:]]License.txt filter=lfs diff=lfs merge=lfs -text
+Paulscode[[:space:]]SoundSystem[[:space:]]CodecIBXM[[:space:]]License.txt filter=lfs diff=lfs merge=lfs -text
+build.gradle filter=lfs diff=lfs merge=lfs -text
+java_pid39118.hprof filter=lfs diff=lfs merge=lfs -text
+MinecraftForge-License.txt filter=lfs diff=lfs merge=lfs -text
