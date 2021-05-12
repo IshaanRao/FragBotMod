@@ -46,7 +46,9 @@ public class FragBotChatHandler {
                 Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(FragBots.PREFIX+currentBot+" has been partied!"));
             }else if(type == ChatEventType.JOIN){
                 Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(FragBots.PREFIX+currentBot+" has joined the party!"));
-                RenderHandler.getInstance().addItem(new NotificationDrawable("§a§l"+currentBot+" has joined the party!"),3000);
+                if(FragBots.getConfigHandler().isShowAlerts()) {
+                    RenderHandler.getInstance().addItem(new NotificationDrawable("§a§l" + currentBot + " has joined the party!"), 3000);
+                }
             }else if(type == ChatEventType.LEAVE){
                 Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(FragBots.PREFIX+currentBot+" left the party!"));
             }

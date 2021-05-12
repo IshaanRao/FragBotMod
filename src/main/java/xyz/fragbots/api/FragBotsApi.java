@@ -23,6 +23,8 @@ import java.util.List;
 
 public class FragBotsApi {
     private static String whitelistedIgn = null;
+    private static String activeIgn = null;
+    private static String exclusiveIgn = null;
     private static List<BotGsonObj> botListCache = null;
     //Gets the raw JsonObject from the backend feel free to use this in your own creations!
     public static JsonObject readBotsList() throws ApiReturnError {
@@ -57,6 +59,8 @@ public class FragBotsApi {
     public static void clearCache(){
         botListCache = null;
         whitelistedIgn = null;
+        activeIgn = null;
+        exclusiveIgn = null;
     }
 
     //Joins "fake server" using mojangs api so we can verify your indentity to see if you can use the private frag bots
@@ -93,5 +97,43 @@ public class FragBotsApi {
             }
         }
         return whitelistedIgn;
+    }
+    public static String getActiveIgn(){
+        if(activeIgn!=null){
+            return activeIgn;
+        }
+        String serverId = joinServer();
+        String username = Minecraft.getMinecraft().getSession().getUsername();
+        //Check if mojang actually saw you joining the server
+        JsonObject ignJson = Request.getRequestJson("http://api.fragbots.xyz/v2/authactive?username="+username+"&serverId="+serverId);
+        if(ignJson == null){
+            activeIgn = "";
+        }else{
+            if(ignJson.get("botusername")==null){
+                activeIgn = "";
+            }else{
+                activeIgn = ignJson.get("botusername").getAsString();
+            }
+        }
+        return activeIgn;
+    }
+    public static String getExclusiveIgn(){
+        if(exclusiveIgn!=null){
+            return exclusiveIgn;
+        }
+        String serverId = joinServer();
+        String username = Minecraft.getMinecraft().getSession().getUsername();
+        //Check if mojang actually saw you joining the server
+        JsonObject ignJson = Request.getRequestJson("http://api.fragbots.xyz/v2/authexclusive?username="+username+"&serverId="+serverId);
+        if(ignJson == null){
+            exclusiveIgn = "";
+        }else{
+            if(ignJson.get("botusername")==null){
+                exclusiveIgn = "";
+            }else{
+                exclusiveIgn = ignJson.get("botusername").getAsString();
+            }
+        }
+        return exclusiveIgn;
     }
 }
