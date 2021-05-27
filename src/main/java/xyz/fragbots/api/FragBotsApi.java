@@ -28,7 +28,7 @@ public class FragBotsApi {
     private static List<BotGsonObj> botListCache = null;
     //Gets the raw JsonObject from the backend feel free to use this in your own creations!
     public static JsonObject readBotsList() throws ApiReturnError {
-        String resp = Request.getRequest("https://api.fragbots.xyz/v2/botslist");
+        String resp = Request.getRequest("http://api.fragbots.xyz/v2/botslist");
         if(resp == null){
             throw new ApiReturnError("API returned null");
         }
